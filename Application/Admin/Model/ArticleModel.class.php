@@ -2,12 +2,13 @@
 namespace Admin\Model;
 use Think\Model;
 class ArticleModel extends Model{
-    protected $insertFields = 'title,content,acid';
-    protected $updateFields = 'atid,title,content,acid';
+    protected $insertFields = 'title,sort,content,acid';
+    protected $updateFields = 'atid,title,sort,content,acid';
     protected $_validate = array(
         array("title","require","文章标题不能为空",1,"regex",3),
         array("title","","文章标题已经存在",1,"unique",3),
         array("title","1,50","文章标题不能超过50个字符",1,"length",3),
+        array("sort","number","排序是数字",1,"",3),
         array("content","require","文章内容不能为空",1,"regex",3),
     );
     //添加前的钩子函数
@@ -44,7 +45,7 @@ class ArticleModel extends Model{
             ->field('a.*,b.acname')
             ->where($where)
             ->join('left join __ARTICLE_CATEGORY__ b on a.acid=b.acid')
-            ->order('a.atid desc')
+            ->order('a.sort asc,b.acid desc,a.atid desc')
             ->limit($p->firstRow.','.$p->listRows)
             ->select();
         return $data;
