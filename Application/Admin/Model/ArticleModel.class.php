@@ -31,12 +31,15 @@ class ArticleModel extends Model{
     }
 
     //列表,搜索
-    public function search($pageSize=10)
+    public function search($pageSize=10,$is_public=true)
     {
         $where = array();
         if(I('get.search')){
             $where['a.title'] = array('like','%'.I('get.search').'%');
             $data['search'] = I('get.search');
+        }
+        if($is_public){
+            $where['a.is_public'] = 1;
         }
         $count = $this->alias('a')->where($where)->join('left join __ARTICLE_CATEGORY__ b on a.acid=b.acid')->count(); //查询满足条件的总条数
         $p = getpage($count,$pageSize);

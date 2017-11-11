@@ -8,7 +8,7 @@ class ArticleController extends PublicController{
         parent::isLogin();
         C('TOKEN_ON',false);
         $model = D('Article');
-        $data = $model->search();
+        $data = $model->search(10,false);
         $this->assign($data);
         $this->display();
     }
