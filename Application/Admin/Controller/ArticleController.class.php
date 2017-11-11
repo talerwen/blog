@@ -58,8 +58,13 @@ class ArticleController extends PublicController{
     public function go_public(){
         parent::isLogin();
         $id = I('post.id');
-        $model = D('Article');
-        $re = $model->go_public($id);
+        $model = M('Article');
+        $data = $model->where('atid='.$id)->find();
+        if($data['is_public']){
+            return $model->where('atid='.$id)->setField('is_public',0);
+        }else{
+            return $model->where('atid='.$id)->setField('is_public',1);
+        }
         if($re){
             $result_data = ['status'=>1];
         }else{

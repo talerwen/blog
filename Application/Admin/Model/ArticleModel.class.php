@@ -54,12 +54,4 @@ class ArticleModel extends Model{
         return $data;
     }
 
-    public function go_public($id){
-        $data = $this->where('atid='.$id)->find();
-        if($data['is_public']){
-            return $this->where('atid='.$id)->setField('is_public',0);
-        }else{
-            return $this->where('atid='.$id)->setField('is_public',1);
-        }
-    }
 }
