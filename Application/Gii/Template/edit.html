@@ -1,0 +1,77 @@
+<extend name="./Application/Admin/View/Public/base.html" />
+<block name="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-action">
+                    修改
+                </div>
+                <div class="card-content">
+                    <form class="col s12" action="__SELF__" method="post">
+                        <?php foreach($this->fields as $k => $v){ ?>
+                            <?php if($v['Key'] == 'PRI')continue; ?>
+                            <?php if(strpos($v['Field'],'time') !== FALSE)continue; ?>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for='<?php echo $v["Field"]; ?>'><?php echo $v["Comment"]; ?></label>
+                                    <?php if($v['Type'] == 'text'){ ?>
+                                    <div style="margin-top: 45px;">
+                                        <textarea placeholder="" id='<?php echo $v["Field"]; ?>' name='<?php echo $v["Field"]?>'><?php echo '{$'.$v["Field"].'}';?></textarea>
+                                    </div>
+                                    <?php }else{ ?>
+                                        <input placeholder="" id='<?php echo $v["Field"]; ?>' name='<?php echo $v["Field"]; ?>' type="text" value="<?php if(strpos($v['Field'],'pass')===FALSE){echo '{$'.$v['Field'].'}';} ?>">
+                                    <?php } ?>
+
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="hidden" name="<?php echo $this->pk; ?>" value="{$<?php echo $this->pk; ?>}">
+                                <input class="waves-effect waves-light btn" type="submit" value="修改" >
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearBoth"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+
+<?php if($v['Type'] == 'text'){ ?>
+<div style="margin-top: 45px;">
+    <textarea placeholder="" id='<?php echo $v["Field"]; ?>' name='<?php echo $v["Field"]?>'></textarea>
+</div>
+<?php }else{ ?>
+<input placeholder="" id='<?php echo $v["Field"]; ?>' name='<?php echo $v["Field"]?>' type="text">
+<?php } ?>
+
+
+
+<block name="othercss">
+    <?php foreach($this->fields as $k => $v){ ?>
+    <?php if($v['Type'] == 'text'){ ?>
+    <link href="__PUBLIC__/umeditor1.2.3-utf8-php/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <?php break; ?>
+    <?php } ?>
+    <?php }?>
+</block>
+<block name="otherjs">
+    <?php foreach($this->fields as $k => $v){ ?>
+    <?php if($v['Type'] == 'text'){ ?>
+    <script type="text/javascript" src="__PUBLIC__/umeditor1.2.3-utf8-php/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor1.2.3-utf8-php/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor1.2.3-utf8-php/umeditor.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/umeditor1.2.3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <script>
+        UM.getEditor('content', {
+            initialFrameWidth : "100%",
+            initialFrameHeight : 350,
+        });
+    </script>
+    <?php break; ?>
+    <?php } ?>
+    <?php }?>
+</block>

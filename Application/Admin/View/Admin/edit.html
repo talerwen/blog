@@ -1,0 +1,35 @@
+<extend name="Public:base" />
+<block name="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-action">
+                    添加
+                </div>
+                <div class="card-content">
+                    <form class="col s12" action="__SELF__" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="" id="first_name" name='aname' type="text" value="{$aname}">
+                                <label for="first_name">管理员姓名</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" name='passwd'>
+                                <label for="password">管理员密码</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="hidden" name="aid" value="{$aid}">
+                                <input class="waves-effect waves-light btn" type="submit" value="修改" >
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearBoth"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

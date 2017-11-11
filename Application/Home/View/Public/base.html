@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <block name="title"><title>童文的个人博客(爱聊咖)</title></block>
+    <block name="meta">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="blog | www.ailiaoka.cn">
+    <meta name="author" content="www.ailiaoka.cn">
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    </block>
+    <block name="css">
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="__PUBLIC__/css/zerogrid.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/responsive.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/page.css">
+    <link rel="stylesheet" href="__PUBLIC__/Font-Awesome-3.2.1/css/font-awesome.min.css">
+        <style type="text/css">
+            #totop {
+                position: fixed;
+                bottom: 6%;
+                right: 3.5%;
+                display: none;
+                z-index: 9999;
+                background: transparent;
+                border: 3px solid #91dbd1;
+                border-radius: 50%;
+                height: 50px;
+                width: 50px;
+                text-align: center;
+            }
+            .fa {
+                /* display: inline-block; */
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .fa-angle-up:before {
+                content: "\f106";
+                box-sizing: border-box;
+            }
+
+            #totop i {
+                color: #91dbd1;
+                line-height: 43px;
+                font-size: 33px;
+            }
+            </style>
+    </block>
+    <block name="owncss"></block>
+
+    <link href='__PUBLIC__/img/liao.png' rel='icon' type='image/x-icon'/>
+
+
+</head>
+<body>
+<div class="wrap-body zerogrid">
+    <!--------------Header--------------->
+    <a id="totop" href="#" style="display: none;"><i class="fa fa-angle-up"></i></a>
+    <header>
+        <div class="wrap-header">
+
+            <div class="top">
+                <div class="socials">
+                    <ul>
+                        <li><a href="#" title="facebook"><img  src="__PUBLIC__/images/socials/facebook-32x32.png"/></a></li>
+                        <li><a href="#" title="google"><img  src="__PUBLIC__/images/socials/google-32x32.png"/></a></li>
+                        <li><a href="#" title="twitter"><img  src="__PUBLIC__/images/socials/twitter-32x32.png"/></a></li>
+                        <li><a href="#" title="rss"><img  src="__PUBLIC__/images/socials/rss-32x32.png"/></a></li>
+                        <li><a href="#" title="youtube"><img  src="__PUBLIC__/images/socials/youtube-32x32.png"/></a></li>
+                    </ul>
+                </div>
+                <div id="search">
+                    <form action="__ROOT__/lst.html" method="get">
+                        <div><button style="border:none;" type="submit"  class="button-search"/></div>
+                        <input type="text" name="search" placeholder="搜索..." value="{$search}" />
+                    </form>
+                </div>
+            </div>
+
+            <div id="logo">
+                <h1>童文的博客</h1>
+            </div>
+
+            <nav>
+                <div class="wrap-nav">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="__ROOT__/index.html">主页</a></li>
+                            <li><a href="__ROOT__/lst.html">文章</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <div align=center>
+        <div style=“width:960px; margin:0 auto; height:90px;”>
+            <script>
+                (function() {
+                    var s = "_" + Math.random().toString(36).slice(2);
+                    document.write('<div id="' + s + '"></div>');
+                    (window.slotbydup=window.slotbydup || []).push({
+                        id: '730419',
+                        container: s,
+                        size: '960,90',
+                        display: 'inlay-fix'
+                    });
+                })();
+            </script>
+        </div>
+    </div>
+    <!--------------Content--------------->
+    <section id="content">
+        <div class="wrap-content">
+            <div class="row block">
+                <div id="main-content" class="col-2-3">
+                    <div class="wrap-col">
+                        <block name="content">
+
+                        </block>
+                    </div>
+                </div>
+                <div id="sidebar" class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+                            <div class="heading"><h2>关于我</h2></div>
+                            <div class="content">
+                                <img src="__PUBLIC__/img/psb.jpg" style="border: 0px;width:80px;height:80px;border-radius:50px;"/>
+                                <p>童文 &nbsp;&nbsp;&nbsp;PHP工程师<br/>努力做最好的自己</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="heading"><h2>分类</h2></div>
+                            <div class="content">
+                                <ul>
+                                    <volist name="one_level_cat" id="v">
+                                        <li><a href="__ROOT__/lst-cat-{$v['acid']}.html">{$v['acname']}</a></li>
+                                    </volist>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style=“width:300px; margin:0 auto; height:250px”>
+                            <script>
+                                (function() {
+                                    var s = "_" + Math.random().toString(36).slice(2);
+                                    document.write('<div id="' + s + '"></div>');
+                                    (window.slotbydup=window.slotbydup || []).push({
+                                        id: '864895',
+                                        container: s,
+                                        size: '300,250',
+                                        display: 'inlay-fix'
+                                    });
+                                })();
+                            </script>
+                        </div>
+                        <div class="box">
+                            <div class="heading"><h2>热搜文章</h2></div>
+                            <div class="content">
+                                <volist name="article_hot" id="v">
+                                    <div class="post">
+                                        <h4><a href="__ROOT__/art-{$v['atid']}.html">{$v['title']}</a></h4>
+                                        <p>{$v['addtime']|date='Y-m-d H:i:s',###}</p>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--------------Footer--------------->
+    <footer>
+        <div class="wrap-footer">
+            <div class="row">
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+                            <div class="heading"><h2>我的图片</h2></div>
+                            <div class="content gallery">
+                                <a href="#"><img src="__PUBLIC__/images/img1.jpg" width="120"/></a>
+                                <a href="#"><img src="__PUBLIC__/images/img2.jpg" width="120"/></a>
+                                <a href="#"><img src="__PUBLIC__/images/img3.jpg" width="120"/></a>
+                                <a href="#"><img src="__PUBLIC__/images/img5.jpg" width="120"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+                            <div class="heading"><h2>关于我</h2></div>
+                            <div class="content">
+                                <img src="__PUBLIC__/img/psb.jpg" style="border: 0px;width:80px;height:80px;border-radius:50px;"/>
+                                <p>talerwen<br/>Try to be the best you can be!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-3">
+                    <div class="wrap-col">
+                        <div class="box">
+                            <div class="heading"><h2>联系我</h2></div>
+                            <div class="content">
+                                <p>这是我的个人博客(爱聊咖)</p>
+                                <p>Website : <a href="http://tongwen.ailiaoka.cn" target="_blank">http://tongwen.ailiaoka.cn</a></p>
+                                <p>qq:602943077</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 500){
+                $("#totop").show();
+            }else{
+                $("#totop").hide();
+            }
+        });
+
+    })
+</script>
+<block name="ownjs"></block>
+</body>
+</html>

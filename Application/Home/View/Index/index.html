@@ -1,0 +1,21 @@
+﻿<extend name="Public:base" />
+.fa-angle-up:before {
+content: "\f106";
+box-sizing: border-box;
+}
+<block name='content'>
+	<volist name="article_list" id="v">
+		<article>
+			<div class="heading">
+				<h2><a href="__ROOT__/art-{$v['atid']}.html">{$v['title']}</a></h2>
+			</div>
+			<div class="content">
+				<!--<img src="__PUBLIC__/images/img3.jpg" width="250px" height="100px"/>-->
+				{$v['content']}
+			</div>
+			<div class="info">
+				<p>{$v['addtime']|date='Y-m-d H:i:s',###} &nbsp;&nbsp;&nbsp;阅读: {$v['click_num']}</p>
+			</div>
+		</article>
+	</volist>
+</block>

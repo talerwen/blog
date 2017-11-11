@@ -1,0 +1,14 @@
+﻿<extend name="Public:base" />
+<block name='content'>
+	<volist name="article_list" id="v">
+		<div class="post">
+			<!--<img src="__PUBLIC__/images/img4.jpg" width="50px"/>-->
+			<h4><a href="__ROOT__/art-{$v['atid']}.html">{$v['title']}</a></h4>
+			<p>{$v['addtime']|date='Y-m-d H:i:s',###}</p>
+		</div>
+	</volist>
+	<div class="pages">
+		{$page}
+	</div>
+</block>
+

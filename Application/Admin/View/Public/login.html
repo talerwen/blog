@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="en-US">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>博客后台登录</title>
+
+	<!--- CSS --->
+	<link rel="stylesheet" href="__PUBLIC__/blog/style.css" type="text/css" />
+
+
+	<!--- Javascript libraries (jQuery and Selectivizr) used for the custom checkbox --->
+
+	<!--[if (gte IE 6)&(lte IE 8)]>
+		<script type="text/javascript" src="__PUBLIC__/blog/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/blog/selectivizr.js"></script>
+		<noscript><link rel="stylesheet" href="__PUBLIC__/blog/fallback.css" /></noscript>
+	<![endif]-->
+
+	</head>
+
+	<body>
+		<div id="container">
+			<form action="__SELF__" method="post">
+				<div class="login">登录</div>
+				<div class="username-text">用户名:</div>
+				<div class="password-text">密码:</div>
+				<div class="username-field">
+					<input type="text" name="aname" value="" />
+				</div>
+				<div class="password-field">
+					<input type="password" name="passwd" value="" />
+				</div>
+				<input type="checkbox" name="remember-me" id="remember-me" /><label for="remember-me">记得我</label>
+				<div class="forgot-usr-pwd">忘记密码 <a href="#">用户名</a> 或者 <a href="#">密码</a>?</div>
+				<input type="submit" name="submit" value="登录" />
+			</form>
+		</div>
+</body>
+</html>

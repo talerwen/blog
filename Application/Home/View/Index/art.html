@@ -1,0 +1,52 @@
+﻿<extend name="Public:base" />
+<block name="owncss">
+	<style style="text/css">
+		.icon-thumbs-up:before {
+			content: "\f087";
+			box-sizing: border-box;
+		}
+	</style>
+</block>
+<block name="title"><title>{$title}</title></block>
+<block name='content'>
+	<article>
+		<div class="heading">
+			<h2>{$title}</h2>
+		</div>
+		<div class="content">
+			{$content}
+		</div>
+		<div class="info">
+			<p>{$addtime|date='Y-m-d H:i:s',###} &nbsp;&nbsp;&nbsp;阅读: {$click_num}  &nbsp;&nbsp;<a href="javascript:void(0);" onclick="add_praise(this,{$atid})"><i class="icon-thumbs-up"></i></a><span>{$praise_num}</span></p>
+		</div>
+		<div class="pages">
+			<div>
+				<if condition="$next_id neq 0">
+					<a class="next" href="art-{$next_id}.html">上一页</a>
+				</if>
+				&nbsp;&nbsp;&nbsp;
+				<if condition="$prev_id neq 0">
+					<a class="prev" href="art-{$prev_id}.html">下一页</a>
+				</if>
+			</div>
+		</div>
+	</article>
+</block>
+<block name="ownjs">
+	<script>
+		function add_praise(obj,id){
+			var that = $(obj);
+			var url = '__CONTROLLER__/addPraise';
+			$.ajax({
+				url:url+'/id/'+id,
+				type:'get',
+				success:function(re){
+					that.next('span').text(re.data);
+				}
+			})
+		}
+	</script>
+
+</block>
+
+

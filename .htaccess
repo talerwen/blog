@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+ # RewriteRule ^(.*)$ index.php/$1 [QSA,PT]
+  RewriteRule ^index\.html$ index.php/Home/Index/index [L]
+  RewriteRule ^lst\.html$ index.php/Home/Index/lst [L]
+  RewriteRule ^lst-p-(\d+)\.html$ index.php/Home/Index/lst/p/$1 [L]
+  RewriteRule ^lst-cat-(\d+)\.html$ index.php/Home/Index/lst/cat/$1 [L]
+  RewriteRule ^lst-cat-(\d+)-p-(\d+)\.html$ index.php/Home/Index/lst/cat/$1/p/$2 [L]
+  RewriteRule ^art-(\d+)\.html$ index.php/Home/Index/art/id/$1 [L]
+</IfModule>
