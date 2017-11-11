@@ -17,6 +17,9 @@ class ArticleModel extends Model{
             $condition['_logic'] = "OR";
             $where['_complex']=$condition;
         }
+        if($pram['is_public']){
+            $where['a.is_public'] = 1;
+        }
         $count = $this->alias('a') ->join('left join __ARTICLE_CATEGORY__ b on a.acid=b.acid')->where($where)->count(); //查询满足条件的总条数
         $p = getpage($count);
 		$url = '';

@@ -18,7 +18,7 @@ class IndexController extends Controller {
 	// 标题列表页面
 	public function lst(){
 		$ArticleModel = new \Home\Model\ArticleModel();
-		$data = $ArticleModel->search();
+		$data = $ArticleModel->search(['is_public'=>true]);
 		$this->assign('search',$data['search']);
 		$this->assign('article_list',$data['data']);
 		$this->assign('page',$data['page']);
