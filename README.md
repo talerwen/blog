@@ -1,2 +1,2 @@
 # blog
-this is storage code
+这个是个人的博客
