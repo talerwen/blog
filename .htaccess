@@ -4,7 +4,7 @@
   RewriteBase /
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
- # RewriteRule ^(.*)$ index.php/$1 [QSA,PT]
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT]
   RewriteRule ^index\.html$ index.php/Home/Index/index [L]
   RewriteRule ^lst\.html$ index.php/Home/Index/lst [L]
   RewriteRule ^lst-p-(\d+)\.html$ index.php/Home/Index/lst/p/$1 [L]
