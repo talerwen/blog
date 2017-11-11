@@ -54,6 +54,19 @@ class ArticleController extends PublicController{
 
         $this->display();
     }
+    
+    public function go_public(){
+        parent::isLogin();
+        $id = I('post.id');
+        $model = D('Article');
+        $re = $model->go_public($id);
+        if($re){
+            $result_data = ['status'=>1];
+        }else{
+            $result_data = ['status'=>0];
+        }
+        $this->ajaxReturn($result_data);
+    }
 
     // 删除
     public function delete(){
